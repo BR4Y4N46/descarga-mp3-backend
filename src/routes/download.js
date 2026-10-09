@@ -35,13 +35,13 @@ router.get('/download', (req, res) => {
       url, '-x', '--audio-format', 'mp3', '--audio-quality', '0',
       '-o', '-', '--no-warnings', '--no-playlist', '--no-check-certificate',
       '--cookies', './cookies.txt',
-      '--extractor-args', 'youtube:player_client=default,mweb'
+      '--extractor-args', 'youtube:player_client=tv_embedded'
     ]
   : [
       url, '-f', 'best[ext=mp4][height<=720]/best[ext=mp4]/best',
       '-o', '-', '--no-warnings', '--no-playlist', '--no-check-certificate',
       '--cookies', './cookies.txt',
-      '--extractor-args', 'youtube:player_client=default,mweb'
+      '--extractor-args', 'youtube:player_client=tv_embedded'
     ]
   let child
   try {
