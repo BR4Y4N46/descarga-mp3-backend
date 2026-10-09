@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import infoRoutes from './routes/info.js'
 import downloadRoutes from './routes/download.js'
 import { apiLimiter } from './middleware/rateLimit.js'
+import './load-cookies.js'
 
 dotenv.config()
 
