@@ -31,11 +31,18 @@ router.get('/download', (req, res) => {
   const filename = `${baseName}.${ext}`
 
   const args = isAudio
-    ? [url, '-x', '--audio-format', 'mp3', '--audio-quality', '0',
-       '-o', '-', '--no-warnings', '--no-playlist', '--no-check-certificate']
-    : [url, '-f', 'best[ext=mp4][height<=720]/best[ext=mp4]/best',
-       '-o', '-', '--no-warnings', '--no-playlist', '--no-check-certificate']
-
+  ? [
+      url, '-x', '--audio-format', 'mp3', '--audio-quality', '0',
+      '-o', '-', '--no-warnings', '--no-playlist', '--no-check-certificate',
+      '--cookies', './cookies.txt',
+      '--extractor-args', 'youtube:player_client=default,mweb'
+    ]
+  : [
+      url, '-f', 'best[ext=mp4][height<=720]/best[ext=mp4]/best',
+      '-o', '-', '--no-warnings', '--no-playlist', '--no-check-certificate',
+      '--cookies', './cookies.txt',
+      '--extractor-args', 'youtube:player_client=default,mweb'
+    ]
   let child
   try {
     child = streamYtDlp(args)
