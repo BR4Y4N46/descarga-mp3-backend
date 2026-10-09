@@ -5,5 +5,6 @@ export const apiLimiter = rateLimit({
   max: 15,
   standardHeaders: true,
   legacyHeaders: false,
-  message: { error: 'Demasiadas peticiones. Espera un minuto.' }
+  message: { error: 'Demasiadas peticiones. Espera un minuto.' },
+  validate: { xForwardedForHeader: false }   // 👈 añade esto
 })
