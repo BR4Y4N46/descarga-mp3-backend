@@ -15,7 +15,7 @@ async function extractWithRetry(url, maxRetries = 3) {
         '--no-playlist',
         '--no-check-certificate',
         '--cookies', './cookies.txt',
-        '--extractor-args', 'youtube:player_client=default,mweb'
+        '--extractor-args', 'youtube:player_client=tv_embedded'
       ])
       return JSON.parse(raw)
     } catch (err) {
