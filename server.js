@@ -2,7 +2,7 @@
 import express from 'express'
 import { exec } from 'child_process'
 const app = express()
-
+app.set('trust proxy', 1)
 app.get('/api/info', async (req, res) => {
   exec(`yt-dlp -J ${req.query.url}`, (err, stdout) => {
     if (err) return res.status(500).json({ error: 'Fallo' })
