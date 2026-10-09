@@ -11,7 +11,7 @@ router.get('/info', async (req, res) => {
   }
   try {
     const raw = await execYtDlp([
-      url, '-J', '--no-warnings', '--no-playlist', '--no-check-certificate'
+      url, '-J', '--no-warnings', '--no-playlist', '--no-check-certificate','--cookies', './cookies.txt',  '--extractor-args', 'youtube:player_client=default,mweb' 
     ])
     const data = JSON.parse(raw)
     res.json({
